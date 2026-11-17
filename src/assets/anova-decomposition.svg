@@ -4,11 +4,11 @@
 <rect width="920" height="350" rx="14" fill="#f7f9fb"/>
 <text x="34" y="38" fill="#243c52" font-size="22" font-weight="bold" font-family="sans-serif">3群のデータと、変動の分解</text>
 <g stroke="#b5c5d2" stroke-width="2"><path d="M120 287H596 M120 64V287"/></g>
-<line x1="120" y1="200" x2="596" y2="200" stroke="#627f95" stroke-width="2" stroke-dasharray="6 6"/>
-<text x="610" y="204" fill="#536b7b" font-family="sans-serif" font-size="14">全体平均 5</text>
-<g font-family="sans-serif" font-size="14" fill="#4b6578"><text x="104" y="288" text-anchor="end">0</text><text x="104" y="203" text-anchor="end">5</text><text x="104" y="118" text-anchor="end">10</text></g>
-<g stroke-width="3" stroke-linecap="round"><path d="M218 249V215" stroke="#2c7795"/><path d="M358 215V181" stroke="#368c7d"/><path d="M498 147V113" stroke="#9e7284"/></g>
-<g fill="#2c7795"><circle cx="218" cy="249" r="8"/><circle cx="218" cy="215" r="8"/></g><g fill="#368c7d"><circle cx="358" cy="215" r="8"/><circle cx="358" cy="181" r="8"/></g><g fill="#9e7284"><circle cx="498" cy="147" r="8"/><circle cx="498" cy="113" r="8"/></g>
+<line x1="120" y1="202" x2="596" y2="202" stroke="#627f95" stroke-width="2" stroke-dasharray="6 6"/>
+<text x="610" y="206" fill="#536b7b" font-family="sans-serif" font-size="14">全体平均 5</text>
+<g font-family="sans-serif" font-size="14" fill="#4b6578"><text x="104" y="288" text-anchor="end">0</text><text x="104" y="205" text-anchor="end">5</text><text x="104" y="120" text-anchor="end">10</text></g>
+<g stroke-width="3" stroke-linecap="round"><path d="M218 253V219" stroke="#2c7795"/><path d="M358 219V185" stroke="#368c7d"/><path d="M498 151V117" stroke="#9e7284"/></g>
+<g fill="#2c7795"><circle cx="218" cy="253" r="8"/><circle cx="218" cy="219" r="8"/></g><g fill="#368c7d"><circle cx="358" cy="219" r="8"/><circle cx="358" cy="185" r="8"/></g><g fill="#9e7284"><circle cx="498" cy="151" r="8"/><circle cx="498" cy="117" r="8"/></g>
 <g fill="#243c52" font-family="sans-serif" font-size="17" text-anchor="middle"><text x="218" y="315">A群 2, 4</text><text x="358" y="315">B群 4, 6</text><text x="498" y="315">C群 8, 10</text></g>
 <g font-family="sans-serif" font-size="17" fill="#243c52"><text x="695" y="132">群間平方和：40</text><text x="695" y="171">群内平方和：6</text><text x="695" y="210" font-weight="bold">全平方和：46</text><text x="695" y="255">F = 10</text></g>
 </svg>
