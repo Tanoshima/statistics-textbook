@@ -26,6 +26,7 @@ jobs:
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: npm run check
       - run: npm run build
+      - run: npm run check:generated
       - name: Verify all 58 chapter pages
         run: |
           test -s dist/index.html
