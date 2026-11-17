@@ -9,10 +9,10 @@
 
 ## ローカル開発
 
-Node.js 22以上が必要です。
+Node.js 26 LTS を推奨します。依存ライブラリは lockfile から再現可能にインストールします。
 
 ```sh
-npm install
+npm ci --ignore-scripts
 npm run build
 python3 -m http.server 8000 -d dist
 ```
@@ -28,3 +28,14 @@ Repository Settings → Pages → Build and deployment → Source を **GitHub A
 `src/chapters/02.md` のようなファイルを作ると、`chapters.json` に登録済みの章のページ・目次リンク・前後の章へのナビゲーションが自動生成されます。数式は `$...$` と `$$...$$` で記述します。ブラウザでの数式表示にはMathJaxを使います。
 
 現段階は本文・構成ともに初稿です。今後、数学的な説明と演習を充実させます。
+
+## セキュリティ
+
+- Node.js 26 LTS を使用し、npm の依存バージョンと integrity を `package-lock.json` に固定しています。
+- CI は `npm ci --ignore-scripts` を使用し、依存パッケージのインストール時スクリプトを実行しません。
+- GitHub Actions は検証したフルコミット SHA に固定し、Checkoutの資格情報を残しません。
+- ビルドとデプロイを別ジョブに分け、書き込み権限は公開ジョブにだけ付与しています。
+- CDNから取得する MathJax はバージョンを指定し、SRIでメインスクリプトの改ざん検知を行います。
+- Dependabot が npm と GitHub Actions の更新PRを週次で作成します。更新は内容をレビューしてから取り込んでください。
+
+追加の防御として、Repository Settings の Actions、Rulesets、Code security で承認・ブランチ保護・Dependabot alertsの有効化を推奨します。
