@@ -17,7 +17,7 @@ for (const [i, chapter] of chapters.entries()) {
   const title = source.match(/^# (.+)$/m)?.[1];
   if (title !== '第' + chapter.number + '章　' + chapter.title)
     errors.push(filename + ': heading/title mismatch');
-  if (!/^## 演習/m.test(source)) errors.push(filename + ': missing exercise heading');
+  if (!/^## (?:\d+(?:\.\d+)?\s+)?演習(?:\s|$)/m.test(source)) errors.push(filename + ': missing exercise heading');
   if (!/解答|解説/.test(source)) errors.push(filename + ': missing answers');
 
   // Ignore fenced code and inline code spans while scanning math.
