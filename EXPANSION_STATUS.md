@@ -21,6 +21,7 @@
 - `npm run check`：58章の一覧・タイトル・演習と解答の存在、TeX区切りや波括弧の基本的な記法
 - `npm run build`：Markdownから各章・用語集・参考資料のHTMLを生成
 - `npm run check:advanced`：第25〜58章の追加例題と代表的な算術計算を独立に確認
+- `npm run check:reproduce`：Node.jsで回帰・ANOVA・DiD・ブートストラップ・リッジなどの架空データによる分析例を実行し、整合性を検査
 - `npm run check:examples`：図解と第21〜24章の主な例題を確認
 - `npm run check:links`：生成したページの内部リンク・画像を検査
 - `npm run check:generated`：58章と用語集へのナビゲーション、AI利用と私的学習目的の表示、MathJaxの設定、代表的な計算例の算術検査
