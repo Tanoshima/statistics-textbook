@@ -19,7 +19,7 @@
 
 ## 読み方
 
-統計学の主要概念を一覧できる [用語集](https://tanoshima.github.io/statistics-textbook/glossary.html) と、学習内容を独立に確かめるための [参考資料](https://tanoshima.github.io/statistics-textbook/references.html) を用意しています。
+統計学の主要概念を一覧できる [用語集](https://tanoshima.github.io/statistics-textbook/glossary.html) 、学習内容を独立に確かめるための [参考資料](https://tanoshima.github.io/statistics-textbook/references.html)、さらにNode.jsで手計算を追試できる [再現可能な計算例](https://tanoshima.github.io/statistics-textbook/reproduce.html) を用意しています。
 
 [公開サイトの目次](https://tanoshima.github.io/statistics-textbook/) から章を選べます。各章では、まず「何を知りたいか」を読み、次に数式の各記号、具体例、前提と限界を確認してから演習に進むことを推奨します。
 
@@ -36,6 +36,7 @@ npm run build
 npm run check:generated
 npm run check:examples
 npm run check:advanced
+npm run check:reproduce
 npm run check:links
 python3 -m http.server 8000 -d dist
 ```
@@ -52,6 +53,8 @@ python3 -m http.server 8000 -d dist
 - `scripts/check-generated.mjs`：生成された全ページ・注意書き・MathJax設定の検査
 - `scripts/check-examples.mjs`：図と数値例の独立検算
 - `scripts/check-advanced-examples.mjs`：第25〜58章の計算例と補足説明の検査
+- `examples/reproduce.mjs`：外部依存のない回帰・分散分析・ブートストラップ等の実行例
+- `src/reproduce.md`：実行手順・解釈上の限界を示すページ
 - `scripts/check-links.mjs`：生成HTMLの内部リンクと画像参照の検査
 - `src/references.md`：原典の照合に役立つ参考資料
 - `src/assets/style.css`：最小限の見た目
