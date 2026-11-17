@@ -29,6 +29,7 @@ jobs:
       - run: npm run check:generated
       - run: npm run check:examples
       - run: npm run check:advanced
+      - run: npm run check:reproduce
       - run: npm run check:links
       - name: Verify diagrams are published
         run: |
@@ -38,6 +39,7 @@ jobs:
           test -s dist/index.html
           test -s dist/glossary.html
           test -s dist/references.html
+          test -s dist/reproduce.html
           test "$(find dist/chapters -maxdepth 1 -name '*.html' | wc -l)" -eq 58
           for n in $(seq -w 1 58); do test -s "dist/chapters/$n.html"; done
           grep -q 'mathjax@3.2.2' dist/chapters/58.html
