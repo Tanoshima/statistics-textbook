@@ -24,7 +24,7 @@ function page(title, body, active = null) {
     + '<meta name="description" content="統計手法の発想と数式の意味を体系的に学ぶ日本語の教科書">'
     + '<title>' + esc(title) + ' | ' + siteName + '</title><link rel="stylesheet" href="' + (nested ? '../' : '') + 'assets/style.css">'
     + '<script>window.MathJax=' + JSON.stringify({ tex: { inlineMath: [['$', '$'], ['\\\\(', '\\\\)']], displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']] }, options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] } }) + ';</script>'
-    + '<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></head><body>'
+    + '<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous"></script></head><body>'
     + '<header><a href="' + home + '"><strong>' + siteName + '</strong></a><a href="' + home + '#toc">目次</a></header>'
     + '<div class="wrap"><main class="book">' + body + '</main><aside aria-label="章目次"><strong>目次</strong><ol>' + links + '</ol></aside></div></body></html>';
 }
