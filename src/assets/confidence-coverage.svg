@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="510" viewBox="0 0 920 510" role="img" aria-labelledby="title desc">
+<title id="title">20回の標本抽出で作る信頼区間の概念図</title>
+<desc id="desc">横線は標本抽出ごとの区間、縦の破線は固定された母数。19本が母数を含み、1本が含まない概念図。実際のデータから算出した区間ではない。</desc>
+<rect width="920" height="510" rx="14" fill="#f7f9fb"/>
+<g font-family="sans-serif" fill="#22364a"><text x="40" y="40" font-size="22" font-weight="700">区間の作り方を繰り返す</text><text x="40" y="64" font-size="16" fill="#607386">模式図：20回中19区間が真の母数を含む場合</text></g>
+<line x1="455" y1="74" x2="455" y2="448" stroke="#516b80" stroke-width="3" stroke-dasharray="7 7"/>
+<text x="464" y="84" font-size="15" fill="#334b60" font-family="sans-serif">固定された真の母数</text>
+<g font-family="sans-serif" fill="#516b80" font-size="13"><text x="66" y="93">抽出 01</text><text x="66" y="111">抽出 02</text><text x="66" y="129">抽出 03</text><text x="66" y="147">抽出 04</text><text x="66" y="165">抽出 05</text><text x="66" y="183">抽出 06</text><text x="66" y="201">抽出 07</text><text x="66" y="219">抽出 08</text><text x="66" y="237">抽出 09</text><text x="66" y="255">抽出 10</text><text x="66" y="273">抽出 11</text><text x="66" y="291">抽出 12</text><text x="66" y="309">抽出 13</text><text x="66" y="327">抽出 14</text><text x="66" y="345">抽出 15</text><text x="66" y="363">抽出 16</text><text x="66" y="381">抽出 17</text><text x="66" y="399">抽出 18</text><text x="66" y="417">抽出 19</text><text x="66" y="435">抽出 20</text></g>
+<line x1="288" y1="88" x2="448" y2="88" stroke="#bd694d" stroke-width="5" stroke-linecap="round"/><circle cx="368" cy="88" r="4" fill="#bd694d"/>
+<line x1="315" y1="106" x2="495" y2="106" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="405" cy="106" r="4" fill="#287c75"/>
+<line x1="342" y1="124" x2="542" y2="124" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="442" cy="124" r="4" fill="#287c75"/>
+<line x1="399" y1="142" x2="559" y2="142" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="479" cy="142" r="4" fill="#287c75"/>
+<line x1="306" y1="160" x2="486" y2="160" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="396" cy="160" r="4" fill="#287c75"/>
+<line x1="333" y1="178" x2="533" y2="178" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="433" cy="178" r="4" fill="#287c75"/>
+<line x1="390" y1="196" x2="550" y2="196" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="470" cy="196" r="4" fill="#287c75"/>
+<line x1="297" y1="214" x2="477" y2="214" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="387" cy="214" r="4" fill="#287c75"/>
+<line x1="324" y1="232" x2="524" y2="232" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="424" cy="232" r="4" fill="#287c75"/>
+<line x1="381" y1="250" x2="541" y2="250" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="461" cy="250" r="4" fill="#287c75"/>
+<line x1="288" y1="268" x2="468" y2="268" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="378" cy="268" r="4" fill="#287c75"/>
+<line x1="315" y1="286" x2="515" y2="286" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="415" cy="286" r="4" fill="#287c75"/>
+<line x1="372" y1="304" x2="532" y2="304" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="452" cy="304" r="4" fill="#287c75"/>
+<line x1="279" y1="322" x2="459" y2="322" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="369" cy="322" r="4" fill="#287c75"/>
+<line x1="306" y1="340" x2="506" y2="340" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="406" cy="340" r="4" fill="#287c75"/>
+<line x1="363" y1="358" x2="523" y2="358" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="443" cy="358" r="4" fill="#287c75"/>
+<line x1="532" y1="376" x2="658" y2="376" stroke="#bd694d" stroke-width="5" stroke-linecap="round"/><circle cx="595" cy="376" r="4" fill="#bd694d"/>
+<line x1="297" y1="394" x2="497" y2="394" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="397" cy="394" r="4" fill="#287c75"/>
+<line x1="354" y1="412" x2="514" y2="412" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="434" cy="412" r="4" fill="#287c75"/>
+<line x1="381" y1="430" x2="561" y2="430" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="471" cy="430" r="4" fill="#287c75"/>
+
+<g font-family="sans-serif" font-size="15"><text x="44" y="477" fill="#287c75">● 母数を含む区間</text><text x="264" y="477" fill="#bd694d">● 含まない区間</text><text x="520" y="477" fill="#516b80">※ 95%の被覆率を保証する個別の結果ではない</text></g>
+</svg>
