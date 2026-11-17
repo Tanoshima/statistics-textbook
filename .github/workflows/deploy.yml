@@ -24,6 +24,7 @@ jobs:
           node-version: '26'
           package-manager-cache: false
       - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm run check
       - run: npm run build
       - name: Verify all 58 chapter pages
         run: |
