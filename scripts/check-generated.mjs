@@ -48,8 +48,10 @@ for (const chapter of chapterList) {
   const renderedBlocks = (html.match(/class="tex-block"/g) || []).length;
   assert.equal(renderedBlocks, sourceBlockDelimiters / 2,
     name + ': Markdown damaged display TeX or lost a block');
-  assert.match(html, /<span class="tex-inline">/,
-    name + ': inline TeX was not isolated from Markdown');
+  if (/(?<!\\)(?<!\$)\$(?!\$)/.test(raw)) {
+    assert.match(html, /<span class="tex-inline">/,
+      name + ': inline TeX was not isolated from Markdown');
+  }
   assert.match(html, /<div class="tex-block">/,
     name + ': display TeX was not isolated from Markdown');
 
