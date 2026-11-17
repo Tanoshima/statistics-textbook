@@ -18,6 +18,23 @@ for (let n = 25; n <= 58; n++) {
   assert.match(source, /^## 検算できる発展例：/m, pathname + ': missing new worked example');
   assert.match(source, /追加演習/, pathname + ': missing further exercise');
   assert.match(source, /解答/, pathname + ': missing answer');
+  const genericFragments = [
+    '数式で重要なのは、値を機械的に代入することではなく',
+    '左辺が知りたい量、右辺がその量をどう定義',
+    '式の左辺が目的とする量で、右辺には前提となる確率',
+    'この式で未知なのは何か、データから直接得られるのは',
+    '数値の解釈は、式の左辺が何を表すかから始める',
+    '計算できたら単位と解釈を確認し',
+    '数値を計算したあと、単位と母集団への適用範囲を必ず'
+  ];
+  for (const phrase of genericFragments)
+    assert.ok(!source.includes(phrase), pathname + ': generic placeholder was reintroduced');
+  const goal = source.match(/^> \*\*学習目標\*\*：(.+)$/m)?.[1];
+  if (goal) {
+    const body = source.slice(source.indexOf('\n## ') + 1);
+    assert.ok(!body.includes('\n\n' + goal + '\n'),
+      pathname + ': introductory paragraph duplicates the learning goal');
+  }
   results.push(source);
 }
 equal(results.length, 34);
