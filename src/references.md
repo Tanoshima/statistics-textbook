@@ -24,6 +24,14 @@
 | [Stan: MCMC診断と警告](https://mc-stan.org/learn-stan/diagnostics-warnings.html) | 分割R-hat、実効サンプルサイズ、発散などの診断 | 第42章 |
 | [scikit-learn: Common pitfalls and recommended practices](https://scikit-learn.org/stable/common_pitfalls) | 前処理のデータ漏洩、訓練・テストの分離、Pipelineの適切な利用 | 第38章、第48〜50章 |
 
+## 実験・因果・多変量・統計的学習の外部資料
+
+| 資料 | 用途 | 関連章 |
+|---|---|---|
+| [Hernán & Robins, *Causal Inference: What If*](https://miguelhernan.org/whatifbook) | 潜在結果、交絡、観察研究、因果効果の識別条件を確認するための公開書籍 | 第25〜27章 |
+| [Penn State, STAT 505: Applied Multivariate Statistical Analysis](https://online.stat.psu.edu/stat505/) | 主成分分析、因子分析、判別・クラスタリングを数式と例で比較する | 第28〜30章 |
+| [James, Witten, Hastie, Tibshirani et al., *An Introduction to Statistical Learning*](https://www.statlearning.com/) | 回帰、分類、リサンプリング、変数選択、正則化、生存時間解析と教師なし学習 | 第15〜24章、第45〜50章、第54章、第58章 |
+
 ## 参考資料で確認する順番
 
 1. **定義を照合する**：標本分布・推定量・信頼区間など、数式で使う量の意味が合っているか。
