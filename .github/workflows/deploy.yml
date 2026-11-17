@@ -24,6 +24,8 @@ jobs:
           node-version: '26'
           package-manager-cache: false
       - run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Record MathJax SRI for pinned CDN asset
+        run: curl --fail --silent --show-error --location 'https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js' | openssl dgst -sha384 -binary | openssl base64 -A
       - run: npm run build
       - name: Verify generated site
         run: test -s dist/index.html && test -s dist/chapters/01.html
