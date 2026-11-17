@@ -9,7 +9,7 @@
 
 - **全10部・58章**：全章に本文、基本的な数式、具体例、適用上の注意、演習・解説を掲載。
 - **第1〜20章**：基礎概念や推測統計・回帰について、導出と計算の説明を比較的詳しく整備。
-- **第21〜58章**：基本説明に深掘り、ケーススタディ、追加演習を掲載。分量・導出の詳細さは章により差があります。
+- **第21〜23章**：非線形回帰・固定効果・ヘドニック回帰を詳しく再編集し、計算例と演習を補強。**第24〜58章**：深掘りとケーススタディを掲載。章によって導出の詳細さに差があります。
 - **対象読者**：統計学を一度学んだことがあり、直感や使い分けを整理したい読者。
 - **公開形式**：標準HTML、CSS、MathJax。本文はMarkdown、数式はLaTeX。
 - **図解**：標本分布・信頼区間の被覆率・分散分析の例について、代替テキスト付きのローカルSVG図を追加しています。
@@ -19,7 +19,7 @@
 
 ## 読み方
 
-統計学の主要概念を一覧できる [用語集](https://tanoshima.github.io/statistics-textbook/glossary.html) も用意しています。
+統計学の主要概念を一覧できる [用語集](https://tanoshima.github.io/statistics-textbook/glossary.html) と、学習内容を独立に確かめるための [参考資料](https://tanoshima.github.io/statistics-textbook/references.html) を用意しています。
 
 [公開サイトの目次](https://tanoshima.github.io/statistics-textbook/) から章を選べます。各章では、まず「何を知りたいか」を読み、次に数式の各記号、具体例、前提と限界を確認してから演習に進むことを推奨します。
 
@@ -33,6 +33,8 @@ Node.js 26 系を使用します。依存ライブラリは `package-lock.json` 
 npm ci --ignore-scripts
 npm run check
 npm run build
+npm run check:generated
+npm run check:examples
 python3 -m http.server 8000 -d dist
 ```
 
@@ -45,6 +47,9 @@ python3 -m http.server 8000 -d dist
 - `chapters.json`：章番号・部・タイトルの一覧
 - `scripts/build.mjs`：MarkdownからHTMLへの生成
 - `scripts/check-content.mjs`：章構成・基本的なTeX記法の検査
+- `scripts/check-generated.mjs`：生成された全ページ・注意書き・MathJax設定の検査
+- `scripts/check-examples.mjs`：図と数値例の独立検算
+- `src/references.md`：原典の照合に役立つ参考資料
 - `src/assets/style.css`：最小限の見た目
 
 MathJaxの数式はインラインを `$...$`、独立行を `$$...$$` で記述します。作成された各章のページにも、AIを利用した私的学習用の原稿である旨の注意書きを表示します。
