@@ -71,5 +71,50 @@ assert.equal(ranges.filter(([, x1, , x2, color]) =>
   (Number(x1) <= 455 && Number(x2) >= 455) === (color === '#287c75')).length, 20,
 'Interval inclusion and illustration color disagree');
 
+// Independent worked-example arithmetic for chapters 21-23.
+const quadratic = x => 10 + 4 * x - 0.5 * x * x;
+approx(quadratic(1), 13.5);
+approx(quadratic(2), 16);
+approx(quadratic(3), 17.5);
+approx(quadratic(4), 18);
+approx(quadratic(4) - quadratic(3), 0.5);
+approx(4 - 4, 0); // derivative at the maximum
+const aic = (k, logLikelihood) => 2 * k - 2 * logLikelihood;
+approx(aic(2, -50), 104);
+approx(aic(4, -46), 100);
+approx(aic(3, -75), 156);
+approx(aic(5, -72), 154);
+
+// School fixed-effect example: first differences cancel time-invariant effects.
+const schools = [
+  { x0: 1, x1: 2, y0: 60, y1: 66 },
+  { x0: 2, x1: 3, y0: 70, y1: 76 }
+];
+for (const school of schools) {
+  const dx = school.x1 - school.x0;
+  const dy = school.y1 - school.y0;
+  approx(dx, 1);
+  approx(dy / dx, 6);
+}
+approx((68 - 60) - (72 - 70), 6);
+
+// Hedonic regression: differences in conditional log prices and retransformation.
+const logPrice = (area, age) => 7 + .012 * area - .020 * age;
+approx(logPrice(65, 12) - logPrice(60, 10), .02);
+approx(Math.exp(.012 * 10), 1.1274968515793757);
+approx(Math.exp(-.020 * 5), .9048374180359595);
+approx(Math.exp(.02), 1.0202013400267558);
+const logNormalMean = (eta, variance) => Math.exp(eta + variance / 2);
+approx(logNormalMean(7, .25) / Math.exp(7), Math.exp(.125));
+const textbook21 = fs.readFileSync('src/chapters/21.md', 'utf8');
+const textbook22 = fs.readFileSync('src/chapters/22.md', 'utf8');
+const textbook23 = fs.readFileSync('src/chapters/23.md', 'utf8');
+for (const [num, source] of [[21, textbook21], [22, textbook22], [23, textbook23]]) {
+  assert.match(source, /^## (?:21|22|23)\.\d+ 演習/m, 'Chapter ' + num + ' lacks numbered exercises');
+  assert.match(source, /^## (?:21|22|23)\.\d+ 演習の解答/m, 'Chapter ' + num + ' lacks numbered answers');
+}
+assert.match(textbook23, /E\[P\\mid X=x\]/);
+assert.match(textbook23, /e\^\{\\eta\(x\)\+\\sigma\^2\/2\}/);
+
 console.log('Checked ' + imageReferences + ' image references, 20 coverage intervals, '
-  + 'the exact sample-mean probabilities and the ANOVA arithmetic.');
+  + 'the exact sample-mean probabilities, ANOVA, and chapter 21-23 example calculations.');
