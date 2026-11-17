@@ -8,7 +8,8 @@
     "check:generated": "node scripts/check-generated.mjs",
     "check:examples": "node scripts/check-examples.mjs",
     "check:links": "node scripts/check-links.mjs",
-    "check:advanced": "node scripts/check-advanced-examples.mjs"
+    "check:advanced": "node scripts/check-advanced-examples.mjs",
+    "check:reproduce": "node examples/reproduce.mjs"
   },
   "dependencies": {
     "markdown-it": "14.3.3"
