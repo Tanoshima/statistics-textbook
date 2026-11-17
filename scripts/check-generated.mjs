@@ -19,6 +19,12 @@ assert.match(glossary, /私的な学習/);
 assert.match(glossary, /chapters\/58\.html/);
 assert.match(glossary, /第8章/);
 assert.match(intro, /href="glossary\.html"/);
+const references = fs.readFileSync('dist/references.html', 'utf8');
+assert.match(references, /私的な学習/);
+assert.match(references, /生成AI/);
+assert.match(references, /online\.stat\.psu\.edu\/stat501/);
+assert.match(references, /openstax\.org/);
+assert.match(intro, /href="references\.html"/);
 
 for (const chapter of chapterList) {
   const html = fs.readFileSync('dist/chapters/' + chapter.slug + '.html', 'utf8');
@@ -31,6 +37,7 @@ for (const chapter of chapterList) {
   assert.match(html, /mathjax@3\.2\.2/, name + ' lacks MathJax');
   assert.match(html, /class="chapter-nav"/, name + ' lacks navigation');
   assert.match(html, /href="\.\.\/glossary\.html"/, name + ' lacks glossary navigation');
+  assert.match(html, /href="\.\.\/references\.html"/, name + ' lacks references navigation');
   assert.match(html, /<h1>/, name + ' lacks chapter title');
 
   const cfg = html.match(/<script>window\.MathJax=([\s\S]*?);<\/script>/);
