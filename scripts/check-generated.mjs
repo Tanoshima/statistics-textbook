@@ -13,6 +13,12 @@ for (const [name, text] of [['README', readme], ['site index', intro]]) {
 assert.match(readme, /58章/);
 assert.match(intro, /id="toc"/);
 assert.equal(chapterList.length, 58);
+const glossary = fs.readFileSync('dist/glossary.html', 'utf8');
+assert.match(glossary, /生成AI/);
+assert.match(glossary, /私的な学習/);
+assert.match(glossary, /chapters\/58\.html/);
+assert.match(glossary, /第8章/);
+assert.match(intro, /href="glossary\.html"/);
 
 for (const chapter of chapterList) {
   const html = fs.readFileSync('dist/chapters/' + chapter.slug + '.html', 'utf8');
@@ -24,6 +30,7 @@ for (const chapter of chapterList) {
   assert.match(html, /専門家による査読/, name + ' lacks review caveat');
   assert.match(html, /mathjax@3\.2\.2/, name + ' lacks MathJax');
   assert.match(html, /class="chapter-nav"/, name + ' lacks navigation');
+  assert.match(html, /href="\.\.\/glossary\.html"/, name + ' lacks glossary navigation');
   assert.match(html, /<h1>/, name + ' lacks chapter title');
 
   const cfg = html.match(/<script>window\.MathJax=([\s\S]*?);<\/script>/);
