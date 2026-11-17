@@ -67,7 +67,6 @@ approx(shrinkWeight(200, 25, 100), 5000 / 5100);
 approx(shrinkWeight(2, 25, 100) * 90 + (1 - shrinkWeight(2, 25, 100)) * 70, 230 / 3);
 approx(1000 / 5, 200);
 approx(3 + 2, 5); // Poisson posterior predictive: E(lambda)+Var(lambda)
-approx([[2, 5], [1, 4]].reduce ? 3 : 0, 3); // U counted explicitly below
 const A = [2, 5], B = [1, 4];
 approx(A.reduce((sum, a) => sum + B.filter(b => a > b).length, 0), 3);
 
@@ -80,7 +79,7 @@ approx(mean([0, 1, 5]), 2);
 approx(Math.sqrt(mean([0, 1, 25])), Math.sqrt(26 / 3));
 approx(100 - 1.96 * 2, 96.08);
 approx(100 + 1.96 * 2, 103.92);
-approx(1.96 * Math.sqrt(2 ** 2 + 10 ** 2), 19.991039);
+approx(1.96 * Math.sqrt(2 ** 2 + 10 ** 2), 19.988156);
 approx(1.96 * Math.sqrt(1 ** 2 + 3 ** 2), 6.198064, 1e-5);
 
 // 51-58: missingness, random effects, survival, mixtures, factor loadings, price indices, ridge.
