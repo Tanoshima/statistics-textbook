@@ -1,0 +1,14 @@
+{
+  "name": "statistics-textbook",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs"
+  },
+  "dependencies": {
+    "markdown-it": "14.3.3"
+  },
+  "engines": {
+    "node": ">=26 <27"
+  }
+}

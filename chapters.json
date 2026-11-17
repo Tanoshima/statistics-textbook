@@ -1,0 +1,408 @@
+[
+  {
+    "number": 1,
+    "title": "統計学とは何か",
+    "part": 1,
+    "partTitle": "統計学の数学的基礎",
+    "slug": "01"
+  },
+  {
+    "number": 2,
+    "title": "確率論の基礎",
+    "part": 1,
+    "partTitle": "統計学の数学的基礎",
+    "slug": "02"
+  },
+  {
+    "number": 3,
+    "title": "確率変数と確率分布",
+    "part": 1,
+    "partTitle": "統計学の数学的基礎",
+    "slug": "03"
+  },
+  {
+    "number": 4,
+    "title": "期待値と分散",
+    "part": 1,
+    "partTitle": "統計学の数学的基礎",
+    "slug": "04"
+  },
+  {
+    "number": 5,
+    "title": "代表的な確率分布",
+    "part": 1,
+    "partTitle": "統計学の数学的基礎",
+    "slug": "05"
+  },
+  {
+    "number": 6,
+    "title": "多変量分布",
+    "part": 1,
+    "partTitle": "統計学の数学的基礎",
+    "slug": "06"
+  },
+  {
+    "number": 7,
+    "title": "統計学のための数学",
+    "part": 1,
+    "partTitle": "統計学の数学的基礎",
+    "slug": "07"
+  },
+  {
+    "number": 8,
+    "title": "標本と標本分布",
+    "part": 2,
+    "partTitle": "標本分布と統計的推測",
+    "slug": "08"
+  },
+  {
+    "number": 9,
+    "title": "大数の法則と中心極限定理",
+    "part": 2,
+    "partTitle": "標本分布と統計的推測",
+    "slug": "09"
+  },
+  {
+    "number": 10,
+    "title": "点推定",
+    "part": 2,
+    "partTitle": "標本分布と統計的推測",
+    "slug": "10"
+  },
+  {
+    "number": 11,
+    "title": "最尤推定法",
+    "part": 2,
+    "partTitle": "標本分布と統計的推測",
+    "slug": "11"
+  },
+  {
+    "number": 12,
+    "title": "区間推定",
+    "part": 2,
+    "partTitle": "標本分布と統計的推測",
+    "slug": "12"
+  },
+  {
+    "number": 13,
+    "title": "仮説検定",
+    "part": 2,
+    "partTitle": "標本分布と統計的推測",
+    "slug": "13"
+  },
+  {
+    "number": 14,
+    "title": "統計的推測の理論",
+    "part": 2,
+    "partTitle": "標本分布と統計的推測",
+    "slug": "14"
+  },
+  {
+    "number": 15,
+    "title": "リサンプリング法",
+    "part": 2,
+    "partTitle": "標本分布と統計的推測",
+    "slug": "15"
+  },
+  {
+    "number": 16,
+    "title": "単回帰分析",
+    "part": 3,
+    "partTitle": "回帰分析と統計モデリング",
+    "slug": "16"
+  },
+  {
+    "number": 17,
+    "title": "重回帰分析",
+    "part": 3,
+    "partTitle": "回帰分析と統計モデリング",
+    "slug": "17"
+  },
+  {
+    "number": 18,
+    "title": "回帰分析の統計的推測",
+    "part": 3,
+    "partTitle": "回帰分析と統計モデリング",
+    "slug": "18"
+  },
+  {
+    "number": 19,
+    "title": "回帰モデルの診断",
+    "part": 3,
+    "partTitle": "回帰分析と統計モデリング",
+    "slug": "19"
+  },
+  {
+    "number": 20,
+    "title": "一般化線形モデル",
+    "part": 3,
+    "partTitle": "回帰分析と統計モデリング",
+    "slug": "20"
+  },
+  {
+    "number": 21,
+    "title": "非線形回帰とモデル選択",
+    "part": 3,
+    "partTitle": "回帰分析と統計モデリング",
+    "slug": "21"
+  },
+  {
+    "number": 22,
+    "title": "固定効果・変量効果モデル",
+    "part": 3,
+    "partTitle": "回帰分析と統計モデリング",
+    "slug": "22"
+  },
+  {
+    "number": 23,
+    "title": "ヘドニック回帰",
+    "part": 3,
+    "partTitle": "回帰分析と統計モデリング",
+    "slug": "23"
+  },
+  {
+    "number": 24,
+    "title": "分散分析",
+    "part": 4,
+    "partTitle": "分散分析・実験計画・因果推論",
+    "slug": "24"
+  },
+  {
+    "number": 25,
+    "title": "実験計画法",
+    "part": 4,
+    "partTitle": "分散分析・実験計画・因果推論",
+    "slug": "25"
+  },
+  {
+    "number": 26,
+    "title": "因果推論の基礎",
+    "part": 4,
+    "partTitle": "分散分析・実験計画・因果推論",
+    "slug": "26"
+  },
+  {
+    "number": 27,
+    "title": "観察データによる因果推論",
+    "part": 4,
+    "partTitle": "分散分析・実験計画・因果推論",
+    "slug": "27"
+  },
+  {
+    "number": 28,
+    "title": "主成分分析",
+    "part": 5,
+    "partTitle": "多変量解析",
+    "slug": "28"
+  },
+  {
+    "number": 29,
+    "title": "因子分析",
+    "part": 5,
+    "partTitle": "多変量解析",
+    "slug": "29"
+  },
+  {
+    "number": 30,
+    "title": "判別分析とクラスタリング",
+    "part": 5,
+    "partTitle": "多変量解析",
+    "slug": "30"
+  },
+  {
+    "number": 31,
+    "title": "時系列解析の基礎",
+    "part": 6,
+    "partTitle": "時系列解析",
+    "slug": "31"
+  },
+  {
+    "number": 32,
+    "title": "AR・MA・ARMAモデル",
+    "part": 6,
+    "partTitle": "時系列解析",
+    "slug": "32"
+  },
+  {
+    "number": 33,
+    "title": "ARIMA・季節モデル",
+    "part": 6,
+    "partTitle": "時系列解析",
+    "slug": "33"
+  },
+  {
+    "number": 34,
+    "title": "指数平滑法と予測",
+    "part": 6,
+    "partTitle": "時系列解析",
+    "slug": "34"
+  },
+  {
+    "number": 35,
+    "title": "状態空間モデル",
+    "part": 6,
+    "partTitle": "時系列解析",
+    "slug": "35"
+  },
+  {
+    "number": 36,
+    "title": "カルマンフィルタ",
+    "part": 6,
+    "partTitle": "時系列解析",
+    "slug": "36"
+  },
+  {
+    "number": 37,
+    "title": "時変係数・構造変化",
+    "part": 6,
+    "partTitle": "時系列解析",
+    "slug": "37"
+  },
+  {
+    "number": 38,
+    "title": "時系列モデルの評価",
+    "part": 6,
+    "partTitle": "時系列解析",
+    "slug": "38"
+  },
+  {
+    "number": 39,
+    "title": "ベイズ推論の基礎",
+    "part": 7,
+    "partTitle": "ベイズ統計学",
+    "slug": "39"
+  },
+  {
+    "number": 40,
+    "title": "ベイズ推定と信用区間",
+    "part": 7,
+    "partTitle": "ベイズ統計学",
+    "slug": "40"
+  },
+  {
+    "number": 41,
+    "title": "階層ベイズモデル",
+    "part": 7,
+    "partTitle": "ベイズ統計学",
+    "slug": "41"
+  },
+  {
+    "number": 42,
+    "title": "MCMC",
+    "part": 7,
+    "partTitle": "ベイズ統計学",
+    "slug": "42"
+  },
+  {
+    "number": 43,
+    "title": "ベイズモデルの評価",
+    "part": 7,
+    "partTitle": "ベイズ統計学",
+    "slug": "43"
+  },
+  {
+    "number": 44,
+    "title": "ノンパラメトリック検定",
+    "part": 8,
+    "partTitle": "ノンパラメトリック統計とロバスト統計",
+    "slug": "44"
+  },
+  {
+    "number": 45,
+    "title": "カーネル密度推定",
+    "part": 8,
+    "partTitle": "ノンパラメトリック統計とロバスト統計",
+    "slug": "45"
+  },
+  {
+    "number": 46,
+    "title": "ロバスト統計",
+    "part": 8,
+    "partTitle": "ノンパラメトリック統計とロバスト統計",
+    "slug": "46"
+  },
+  {
+    "number": 47,
+    "title": "分位点回帰",
+    "part": 8,
+    "partTitle": "ノンパラメトリック統計とロバスト統計",
+    "slug": "47"
+  },
+  {
+    "number": 48,
+    "title": "モデル選択と汎化性能",
+    "part": 9,
+    "partTitle": "統計モデルの評価と実践",
+    "slug": "48"
+  },
+  {
+    "number": 49,
+    "title": "予測性能の評価",
+    "part": 9,
+    "partTitle": "統計モデルの評価と実践",
+    "slug": "49"
+  },
+  {
+    "number": 50,
+    "title": "不確実性の定量化",
+    "part": 9,
+    "partTitle": "統計モデルの評価と実践",
+    "slug": "50"
+  },
+  {
+    "number": 51,
+    "title": "欠測データと選択バイアス",
+    "part": 9,
+    "partTitle": "統計モデルの評価と実践",
+    "slug": "51"
+  },
+  {
+    "number": 52,
+    "title": "統計分析の再現性",
+    "part": 9,
+    "partTitle": "統計モデルの評価と実践",
+    "slug": "52"
+  },
+  {
+    "number": 53,
+    "title": "混合効果モデル",
+    "part": 10,
+    "partTitle": "発展的な統計モデル",
+    "slug": "53"
+  },
+  {
+    "number": 54,
+    "title": "生存時間解析",
+    "part": 10,
+    "partTitle": "発展的な統計モデル",
+    "slug": "54"
+  },
+  {
+    "number": 55,
+    "title": "潜在変数モデル",
+    "part": 10,
+    "partTitle": "発展的な統計モデル",
+    "slug": "55"
+  },
+  {
+    "number": 56,
+    "title": "ファクターモデル",
+    "part": 10,
+    "partTitle": "発展的な統計モデル",
+    "slug": "56"
+  },
+  {
+    "number": 57,
+    "title": "リピートセールス法と価格指数",
+    "part": 10,
+    "partTitle": "発展的な統計モデル",
+    "slug": "57"
+  },
+  {
+    "number": 58,
+    "title": "統計的学習の基礎",
+    "part": 10,
+    "partTitle": "発展的な統計モデル",
+    "slug": "58"
+  }
+]
