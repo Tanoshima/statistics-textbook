@@ -10,6 +10,9 @@ fs.rmSync(dest, { recursive: true, force: true });
 fs.mkdirSync(path.join(dest, 'chapters'), { recursive: true });
 fs.mkdirSync(path.join(dest, 'assets'), { recursive: true });
 fs.copyFileSync('src/assets/style.css', path.join(dest, 'assets/style.css'));
+for (const name of ['sampling-distribution.svg', 'confidence-coverage.svg', 'anova-decomposition.svg']) {
+  fs.copyFileSync(path.join('src', 'assets', name), path.join(dest, 'assets', name));
+}
 
 const exists = chapter => fs.existsSync(path.join('src', 'chapters', chapter.slug + '.md'));
 const esc = s => s.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;');
