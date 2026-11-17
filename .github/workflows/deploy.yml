@@ -28,6 +28,7 @@ jobs:
       - run: npm run build
       - run: npm run check:generated
       - run: npm run check:examples
+      - run: npm run check:advanced
       - run: npm run check:links
       - name: Verify diagrams are published
         run: |
