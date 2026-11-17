@@ -25,8 +25,12 @@ jobs:
           package-manager-cache: false
       - run: npm ci --ignore-scripts --no-audit --no-fund
       - run: npm run build
-      - name: Verify generated site
-        run: test -s dist/index.html && test -s dist/chapters/01.html
+      - name: Verify all 58 chapter pages
+        run: |
+          test -s dist/index.html
+          test "$(find dist/chapters -maxdepth 1 -name '*.html' | wc -l)" -eq 58
+          for n in $(seq -w 1 58); do test -s "dist/chapters/$n.html"; done
+          grep -q 'mathjax@3.2.2' dist/chapters/58.html
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
         if: github.event_name != 'pull_request'
         with:
