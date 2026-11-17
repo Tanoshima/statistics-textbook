@@ -79,7 +79,7 @@ approx(mean([0, 1, 5]), 2);
 approx(Math.sqrt(mean([0, 1, 25])), Math.sqrt(26 / 3));
 approx(100 - 1.96 * 2, 96.08);
 approx(100 + 1.96 * 2, 103.92);
-approx(1.96 * Math.sqrt(2 ** 2 + 10 ** 2), 19.988156);
+approx(1.96 * Math.sqrt(2 ** 2 + 10 ** 2), 19.988156, 1e-5);
 approx(1.96 * Math.sqrt(1 ** 2 + 3 ** 2), 6.198064, 1e-5);
 
 // 51-58: missingness, random effects, survival, mixtures, factor loadings, price indices, ridge.
