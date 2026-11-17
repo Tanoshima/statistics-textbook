@@ -6,7 +6,7 @@
 <line x1="455" y1="74" x2="455" y2="448" stroke="#516b80" stroke-width="3" stroke-dasharray="7 7"/>
 <text x="464" y="84" font-size="15" fill="#334b60" font-family="sans-serif">固定された真の母数</text>
 <g font-family="sans-serif" fill="#516b80" font-size="13"><text x="66" y="93">抽出 01</text><text x="66" y="111">抽出 02</text><text x="66" y="129">抽出 03</text><text x="66" y="147">抽出 04</text><text x="66" y="165">抽出 05</text><text x="66" y="183">抽出 06</text><text x="66" y="201">抽出 07</text><text x="66" y="219">抽出 08</text><text x="66" y="237">抽出 09</text><text x="66" y="255">抽出 10</text><text x="66" y="273">抽出 11</text><text x="66" y="291">抽出 12</text><text x="66" y="309">抽出 13</text><text x="66" y="327">抽出 14</text><text x="66" y="345">抽出 15</text><text x="66" y="363">抽出 16</text><text x="66" y="381">抽出 17</text><text x="66" y="399">抽出 18</text><text x="66" y="417">抽出 19</text><text x="66" y="435">抽出 20</text></g>
-<line x1="288" y1="88" x2="448" y2="88" stroke="#bd694d" stroke-width="5" stroke-linecap="round"/><circle cx="368" cy="88" r="4" fill="#bd694d"/>
+<line x1="288" y1="88" x2="468" y2="88" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="378" cy="88" r="4" fill="#287c75"/>
 <line x1="315" y1="106" x2="495" y2="106" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="405" cy="106" r="4" fill="#287c75"/>
 <line x1="342" y1="124" x2="542" y2="124" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="442" cy="124" r="4" fill="#287c75"/>
 <line x1="399" y1="142" x2="559" y2="142" stroke="#287c75" stroke-width="5" stroke-linecap="round"/><circle cx="479" cy="142" r="4" fill="#287c75"/>
