@@ -39,6 +39,8 @@ for (const chapter of chapterList) {
   assert.match(html, /href="\.\.\/glossary\.html"/, name + ' lacks glossary navigation');
   assert.match(html, /href="\.\.\/references\.html"/, name + ' lacks references navigation');
   assert.match(html, /<h1>/, name + ' lacks chapter title');
+  assert.match(html, /class="skip-link" href="#main-content"/, name + ' lacks skip link');
+  assert.match(html, /id="main-content"/, name + ' lacks main content target');
 
   const cfg = html.match(/<script>window\.MathJax=([\s\S]*?);<\/script>/);
   assert.ok(cfg, name + ' lacks MathJax config');
