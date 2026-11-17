@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "check": "node scripts/check-content.mjs"
+    "check": "node scripts/check-content.mjs",
+    "check:generated": "node scripts/check-generated.mjs"
   },
   "dependencies": {
     "markdown-it": "14.3.3"

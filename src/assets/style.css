@@ -1,1 +1,12 @@
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:#252a32;background:#fff;font:17px/1.95 system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif}header{padding:1rem max(1.2rem,calc((100% - 1000px)/2));border-bottom:1px solid #e2e5ea;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-size:.9rem}header a{text-decoration:none;color:inherit}.wrap{max-width:1000px;padding:2rem 1.2rem;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) 225px;gap:4rem}.book{max-width:690px;min-width:0}h1{line-height:1.4;font-size:2rem;margin:1rem 0 2rem}h2{font-size:1.35rem;margin:2.9rem 0 1rem;padding-bottom:.35rem;border-bottom:1px solid #e5e7eb;line-height:1.5}h3{font-size:1.15rem;margin:2.3rem 0 1rem}a{color:#225b8a}p{margin:1.2rem 0}blockquote{margin:1.8rem 0;padding:.4rem 1.2rem;border-left:3px solid #718fa6;background:#f5f7f9}aside{font-size:.82rem;line-height:1.65;color:#505965}aside ol{padding-left:1.4rem}aside li{margin:.35rem 0}aside a{text-decoration:none;color:inherit}aside a[aria-current=page]{font-weight:bold;color:#164e7e}.muted{color:#6b7480}.chapter-nav{display:flex;justify-content:space-between;margin:4rem 0 1rem;padding-top:1.7rem;border-top:1px solid #e5e7eb;gap:1rem}.chapter-nav>*{max-width:48%}pre{overflow-x:auto;background:#f4f6f8;padding:1rem}p,li{overflow-wrap:anywhere}.math-block,.mjx-container[display=true]{overflow-x:auto;overflow-y:hidden}#toc{scroll-margin-top:1.5rem}@media(max-width:800px){.wrap{display:block;max-width:720px}aside{margin-top:3rem;padding-top:1rem;border-top:1px solid #e5e7eb}h1{font-size:1.7rem}}@media print{header,aside,.chapter-nav{display:none}.wrap{display:block}.book{max-width:none}}
+
+/* Editorial notice remains visible on every chapter without overpowering the text. */
+.editorial-notice{font-size:.88rem;line-height:1.7;color:#465160;border:1px solid #d9e1e8;border-left:3px solid #647f96;border-radius:4px;background:#f7f9fb;padding:.75rem 1rem;margin:0 0 2rem}
+.editorial-notice p{margin:.4rem 0 0}
+.book table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse;margin:1.4rem 0;font-size:.92rem;white-space:normal}
+.book th,.book td{border:1px solid #dfe4e9;padding:.4rem .65rem;text-align:left;vertical-align:top}
+.book thead{background:#f2f5f8}
+.book td:first-child,.book th:first-child{white-space:normal}
+.book blockquote p{margin:.4rem 0}
+.book :is(h2,h3){scroll-margin-top:1rem}
+@media print{.editorial-notice{break-inside:avoid}.book table{overflow:visible;display:table}}
