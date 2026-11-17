@@ -30,6 +30,7 @@ jobs:
       - name: Verify all 58 chapter pages
         run: |
           test -s dist/index.html
+          test -s dist/glossary.html
           test "$(find dist/chapters -maxdepth 1 -name '*.html' | wc -l)" -eq 58
           for n in $(seq -w 1 58); do test -s "dist/chapters/$n.html"; done
           grep -q 'mathjax@3.2.2' dist/chapters/58.html
