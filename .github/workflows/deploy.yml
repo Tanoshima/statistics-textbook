@@ -27,10 +27,16 @@ jobs:
       - run: npm run check
       - run: npm run build
       - run: npm run check:generated
+      - run: npm run check:examples
+      - run: npm run check:links
+      - name: Verify diagrams are published
+        run: |
+          for name in sampling-distribution confidence-coverage anova-decomposition; do test -s "dist/assets/$name.svg"; done
       - name: Verify all 58 chapter pages
         run: |
           test -s dist/index.html
           test -s dist/glossary.html
+          test -s dist/references.html
           test "$(find dist/chapters -maxdepth 1 -name '*.html' | wc -l)" -eq 58
           for n in $(seq -w 1 58); do test -s "dist/chapters/$n.html"; done
           grep -q 'mathjax@3.2.2' dist/chapters/58.html

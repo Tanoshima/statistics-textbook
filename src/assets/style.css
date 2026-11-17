@@ -10,3 +10,12 @@
 .book blockquote p{margin:.4rem 0}
 .book :is(h2,h3){scroll-margin-top:1rem}
 @media print{.editorial-notice{break-inside:avoid}.book table{overflow:visible;display:table}}
+
+/* Keyboard navigation and narrow-screen usability */
+.skip-link{position:absolute;left:1rem;top:-6rem;z-index:1000;padding:.6rem 1rem;background:#123f65;color:#fff;border-radius:.3rem;text-decoration:none}
+.skip-link:focus{top:.6rem}
+a:focus-visible{outline:3px solid #165e96;outline-offset:3px;border-radius:2px}
+.book img{display:block;max-width:100%;height:auto;margin:1.6rem auto}
+header{flex-wrap:wrap}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.skip-link{display:none}}

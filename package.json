@@ -5,7 +5,9 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "check": "node scripts/check-content.mjs",
-    "check:generated": "node scripts/check-generated.mjs"
+    "check:generated": "node scripts/check-generated.mjs",
+    "check:examples": "node scripts/check-examples.mjs",
+    "check:links": "node scripts/check-links.mjs"
   },
   "dependencies": {
     "markdown-it": "14.3.3"
