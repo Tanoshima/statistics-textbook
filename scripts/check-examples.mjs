@@ -32,7 +32,7 @@ for (const chapter of chapters) {
 assert.ok(imageReferences >= 3, 'Expected at least 3 textbook illustrations');
 
 // Independently compute the ANOVA example in chapter 24 using raw observations.
-// This is a regression test for a previously incorrect grand mean and F statistic.
+// The expected values are derived from the six raw observations, not from the text.
 const groups = [[2, 4], [4, 6], [8, 10]];
 const all = groups.flat();
 const mean = xs => xs.reduce((a, b) => a + b, 0) / xs.length;
@@ -43,17 +43,17 @@ const ssBetween = groups.reduce((total, g) =>
   total + g.length * (mean(g) - grandMean) ** 2, 0);
 const ssTotal = all.reduce((a, x) => a + (x - grandMean) ** 2, 0);
 const F = (ssBetween / (groups.length - 1)) / (ssWithin / (all.length - groups.length));
-approx(grandMean, 5);
+approx(grandMean, 17 / 3);
 approx(ssWithin, 6);
-approx(ssBetween, 40);
-approx(ssTotal, 46);
+approx(ssBetween, 112 / 3);
+approx(ssTotal, 130 / 3);
 approx(ssWithin + ssBetween, ssTotal);
-approx(F, 10);
+approx(F, 28 / 3);
 const anova = fs.readFileSync('src/chapters/24.md', 'utf8');
-assert.match(anova, /30\/6=5/);
-assert.match(anova, /SS_B=2\(3-5\)/);
-assert.match(anova, /F=\\frac\{40\/2\}/);
-assert.doesNotMatch(anova, /112\/3|28\}\/\{3\}|34\/6/);
+assert.match(anova, /34\/6=17\/3/);
+assert.match(anova, /SS_B=2\(3-17\/3\)/);
+assert.match(anova, /F=\\frac\{\(112\/3\)\/2\}/);
+assert.doesNotMatch(anova, /30\/6=5|SS_B=2\(3-5\)|F=\\frac\{40\/2\}/);
 
 // The sampling-distribution figure must match the chapter 8 exact probabilities.
 const probabilities = [0.25, 0.5, 0.25];
