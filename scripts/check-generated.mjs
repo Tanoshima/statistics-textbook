@@ -25,6 +25,11 @@ assert.match(references, /生成AI/);
 assert.match(references, /online\.stat\.psu\.edu\/stat501/);
 assert.match(references, /openstax\.org/);
 assert.match(intro, /href="references\.html"/);
+const reproducible = fs.readFileSync('dist/reproduce.html', 'utf8');
+assert.match(reproducible, /生成AI/);
+assert.match(reproducible, /私的な学習/);
+assert.match(reproducible, /examples\/reproduce\.mjs/);
+assert.match(intro, /href="reproduce\.html"/);
 
 for (const chapter of chapterList) {
   const html = fs.readFileSync('dist/chapters/' + chapter.slug + '.html', 'utf8');
@@ -38,6 +43,7 @@ for (const chapter of chapterList) {
   assert.match(html, /class="chapter-nav"/, name + ' lacks navigation');
   assert.match(html, /href="\.\.\/glossary\.html"/, name + ' lacks glossary navigation');
   assert.match(html, /href="\.\.\/references\.html"/, name + ' lacks references navigation');
+  assert.match(html, /href="\.\.\/reproduce\.html"/, name + ' lacks calculations navigation');
   assert.match(html, /<h1>/, name + ' lacks chapter title');
   assert.match(html, /class="skip-link" href="#main-content"/, name + ' lacks skip link');
   assert.match(html, /id="main-content"/, name + ' lacks main content target');
