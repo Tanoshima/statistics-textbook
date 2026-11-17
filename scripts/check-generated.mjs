@@ -42,6 +42,17 @@ for (const chapter of chapterList) {
   assert.match(html, /class="skip-link" href="#main-content"/, name + ' lacks skip link');
   assert.match(html, /id="main-content"/, name + ' lacks main content target');
 
+  const raw = fs.readFileSync('src/chapters/' + chapter.slug + '.md', 'utf8');
+  const sourceBlockDelimiters = (raw.match(/^\$\$/gm) || []).length;
+  assert.equal(sourceBlockDelimiters % 2, 0, name + ': uneven display math fences');
+  const renderedBlocks = (html.match(/class="tex-block"/g) || []).length;
+  assert.equal(renderedBlocks, sourceBlockDelimiters / 2,
+    name + ': Markdown damaged display TeX or lost a block');
+  assert.match(html, /<span class="tex-inline">/,
+    name + ': inline TeX was not isolated from Markdown');
+  assert.match(html, /<div class="tex-block">/,
+    name + ': display TeX was not isolated from Markdown');
+
   const cfg = html.match(/<script>window\.MathJax=([\s\S]*?);<\/script>/);
   assert.ok(cfg, name + ' lacks MathJax config');
   const config = JSON.parse(cfg[1]);
