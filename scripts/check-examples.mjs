@@ -50,7 +50,7 @@ approx(ssTotal, 130 / 3);
 approx(ssWithin + ssBetween, ssTotal);
 approx(F, 28 / 3);
 const anova = fs.readFileSync('src/chapters/24.md', 'utf8');
-assert.match(anova, /34\/6=17\/3/);
+assert.match(anova, /\\frac\{34\}\{6\}=\\frac\{17\}\{3\}/);
 assert.match(anova, /SS_B=2\(3-17\/3\)/);
 assert.match(anova, /F=\\frac\{\(112\/3\)\/2\}/);
 assert.doesNotMatch(anova, /30\/6=5|SS_B=2\(3-5\)|F=\\frac\{40\/2\}/);
