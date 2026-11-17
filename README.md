@@ -35,6 +35,7 @@ npm run check
 npm run build
 npm run check:generated
 npm run check:examples
+npm run check:links
 python3 -m http.server 8000 -d dist
 ```
 
@@ -49,6 +50,7 @@ python3 -m http.server 8000 -d dist
 - `scripts/check-content.mjs`：章構成・基本的なTeX記法の検査
 - `scripts/check-generated.mjs`：生成された全ページ・注意書き・MathJax設定の検査
 - `scripts/check-examples.mjs`：図と数値例の独立検算
+- `scripts/check-links.mjs`：生成HTMLの内部リンクと画像参照の検査
 - `src/references.md`：原典の照合に役立つ参考資料
 - `src/assets/style.css`：最小限の見た目
 
