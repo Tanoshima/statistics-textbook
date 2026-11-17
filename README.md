@@ -19,7 +19,7 @@
 
 ## 読み方
 
-統計学の主要概念を一覧できる [用語集](https://tanoshima.github.io/statistics-textbook/glossary.html) 、学習内容を独立に確かめるための [参考資料](https://tanoshima.github.io/statistics-textbook/references.html)、さらにNode.jsで手計算を追試できる [再現可能な計算例](https://tanoshima.github.io/statistics-textbook/reproduce.html) を用意しています。
+統計学の主要概念を一覧できる [用語集](https://tanoshima.github.io/statistics-textbook/glossary.html)、学習内容を独立に確かめるための [参考資料](https://tanoshima.github.io/statistics-textbook/references.html)、さらにNode.jsで手計算を追試できる [再現可能な計算例](https://tanoshima.github.io/statistics-textbook/reproduce.html) を用意しています。
 
 [公開サイトの目次](https://tanoshima.github.io/statistics-textbook/) から章を選べます。各章では、まず「何を知りたいか」を読み、次に数式の各記号、具体例、前提と限界を確認してから演習に進むことを推奨します。
 
