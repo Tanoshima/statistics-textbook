@@ -15,9 +15,17 @@ const results = [];
 for (let n = 25; n <= 58; n++) {
   const pathname = 'src/chapters/' + String(n).padStart(2, '0') + '.md';
   const source = fs.readFileSync(pathname, 'utf8');
-  assert.match(source, /^## (?:\d+\.\d+ )?検算できる発展例：/m, pathname + ': missing new worked example');
-  assert.match(source, /追加演習/, pathname + ': missing further exercise');
-  assert.match(source, /解答/, pathname + ': missing answer');
+  assert.match(source, /^## \d+\.\d+ 計算例$/m, pathname + ': missing consolidated worked example');
+  assert.match(source, /^## \d+\.\d+ 演習$/m, pathname + ': missing consolidated exercise section');
+  assert.match(source, /^## \d+\.\d+ 演習の解答と解説$/m, pathname + ': missing solutions section');
+  assert.doesNotMatch(source, /^## \d+\.\d+ (?:詳細なケーススタディ|検算できる発展例)/m, pathname + ': duplicate case study section reintroduced');
+  const exercise = source.match(/^## \d+\.\d+ 演習\s*$([\s\S]*?)(?=^## |$)/m)?.[1] || '';
+  const answers = source.match(/^## \d+\.\d+ 演習の解答と解説\s*$([\s\S]*?)(?=^## |$)/m)?.[1] || '';
+  const qs = [...exercise.matchAll(/^\*\*問題(\d+)\*\*：(.+)$/gm)];
+  const as = [...answers.matchAll(/^\*\*問題(\d+)\*\*：(.+)$/gm)];
+  assert.ok(qs.length >= 2, pathname + ': too few exercises');
+  assert.equal(qs.length, as.length, pathname + ': exercise/answer count mismatch');
+  assert.ok(new Set(qs.map(q => q[2])).size === qs.length, pathname + ': repeated exercise');
   const genericFragments = [
     '数式で重要なのは、値を機械的に代入することではなく',
     '左辺が知りたい量、右辺がその量をどう定義',
