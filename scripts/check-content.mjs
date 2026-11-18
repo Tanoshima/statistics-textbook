@@ -21,7 +21,7 @@ for (const [i, chapter] of chapters.entries()) {
   if (!/解答|解説/.test(source)) errors.push(filename + ': missing answers');
   // Each chapter is a reference article: define -> use cases -> mathematics.
   const sectionNames = [...source.matchAll(/^## (?:\d+\.\d+\s+)?(.+)$/gm)].map(m => m[1]);
-  const expectedStart = ['概要', '使用場面', '数式とその意味'];
+  const expectedStart = ['概要', '使用場面', '基本的な考え方', '数式とその意味'];
   for (let j = 0; j < expectedStart.length; j++) {
     if (sectionNames[j] !== expectedStart[j]) errors.push(filename + ': expected section ' + (j + 1) + ' to be ' + expectedStart[j]);
   }
