@@ -15,7 +15,7 @@ const results = [];
 for (let n = 25; n <= 58; n++) {
   const pathname = 'src/chapters/' + String(n).padStart(2, '0') + '.md';
   const source = fs.readFileSync(pathname, 'utf8');
-  assert.match(source, /^## 検算できる発展例：/m, pathname + ': missing new worked example');
+  assert.match(source, /^## (?:\d+\.\d+ )?検算できる発展例：/m, pathname + ': missing new worked example');
   assert.match(source, /追加演習/, pathname + ': missing further exercise');
   assert.match(source, /解答/, pathname + ': missing answer');
   const genericFragments = [
