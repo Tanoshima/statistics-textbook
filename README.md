@@ -19,7 +19,7 @@
 
 ## 読み方
 
-統計学の主要概念を一覧できる [用語集](https://tanoshima.github.io/statistics-textbook/glossary.html)、学習内容を独立に確かめるための [参考資料](https://tanoshima.github.io/statistics-textbook/references.html)、さらにNode.jsで手計算を追試できる [再現可能な計算例](https://tanoshima.github.io/statistics-textbook/reproduce.html) を用意しています。
+基本演算を定義から復習できる [数学の基礎](https://tanoshima.github.io/statistics-textbook/math-foundations.html)、統計学の主要概念を一覧できる [用語集](https://tanoshima.github.io/statistics-textbook/glossary.html)、学習内容を独立に確かめるための [参考資料](https://tanoshima.github.io/statistics-textbook/references.html)、さらにNode.jsで手計算を追試できる [再現可能な計算例](https://tanoshima.github.io/statistics-textbook/reproduce.html) を用意しています。
 
 [公開サイトの目次](https://tanoshima.github.io/statistics-textbook/) から章を選べます。各章は原則として、**① 概要（定義） → ② 使用場面 → ③ 基本的な考え方 → ④ 数式とその意味 → ⑤ 計算例 → ⑥ 結果の解釈 → ⑦ 前提条件と注意点 → ⑧ 演習と解答**の順に整理しています。必要な項目から参照できます。
 
@@ -54,6 +54,7 @@ python3 -m http.server 8000 -d dist
 - `scripts/check-examples.mjs`：図と数値例の独立検算
 - `scripts/check-advanced-examples.mjs`：第25〜58章の計算例と補足説明の検査
 - `examples/reproduce.mjs`：外部依存のない回帰・分散分析・ブートストラップ等の実行例
+- `src/math-foundations.md`：log・総和・微分などを定義と計算例で説明する独立ページ
 - `src/reproduce.md`：実行手順・解釈上の限界を示すページ
 - `scripts/check-links.mjs`：生成HTMLの内部リンクと画像参照の検査
 - `src/references.md`：原典の照合に役立つ参考資料

@@ -77,7 +77,7 @@ function page(title, body, active = null) {
     + '<title>' + esc(title) + ' | ' + siteName + '</title><link rel="stylesheet" href="' + (nested ? '../' : '') + 'assets/style.css">'
     + '<script>window.MathJax=' + JSON.stringify({ tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }, options: { skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'] } }) + ';</script>'
     + '<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" integrity="sha384-AHAnt9ZhGeHIrydA1Kp1L7FN+2UosbF7RQg6C+9Is/a7kDpQ1684C2iH2VWil6r4" crossorigin="anonymous"></script></head><body>'
-    + '<a class="skip-link" href="#main-content">本文へスキップ</a><header><a href="' + home + '"><strong>' + siteName + '</strong></a><a href="' + home + '#toc">目次</a><a href="' + (nested ? '../' : '') + 'glossary.html">用語集</a><a href="' + (nested ? '../' : '') + 'references.html">参考資料</a><a href="' + (nested ? '../' : '') + 'reproduce.html">計算例</a></header>'
+    + '<a class="skip-link" href="#main-content">本文へスキップ</a><header><a href="' + home + '"><strong>' + siteName + '</strong></a><a href="' + home + '#toc">目次</a><a href="' + (nested ? '../' : '') + 'glossary.html">用語集</a><a href="' + (nested ? '../' : '') + 'math-foundations.html">数学の基礎</a><a href="' + (nested ? '../' : '') + 'references.html">参考資料</a><a href="' + (nested ? '../' : '') + 'reproduce.html">計算例</a></header>'
     + '<div class="wrap"><main class="book" id="main-content">' + editorialNotice + body + '</main><aside aria-label="章目次"><strong>目次</strong><ol>' + links + '</ol></aside></div></body></html>';
 }
 let toc = '';
@@ -96,6 +96,8 @@ const intro = md.render(fs.readFileSync('src/index.md', 'utf8')).replace('<h2>�
 fs.writeFileSync(path.join(dest, 'index.html'), page('目次', intro + toc));
 const glossary = md.render(fs.readFileSync('src/glossary.md', 'utf8'));
 fs.writeFileSync(path.join(dest, 'glossary.html'), page('用語集', glossary));
+const mathFoundations = md.render(fs.readFileSync('src/math-foundations.md', 'utf8'));
+fs.writeFileSync(path.join(dest, 'math-foundations.html'), page('数学の基礎', mathFoundations));
 const references = md.render(fs.readFileSync('src/references.md', 'utf8'));
 fs.writeFileSync(path.join(dest, 'references.html'), page('参考資料', references));
 const reproduce = md.render(fs.readFileSync('src/reproduce.md', 'utf8'));
