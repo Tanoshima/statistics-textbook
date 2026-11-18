@@ -70,7 +70,7 @@ function page(title, body, active = null) {
     : '<span class="muted">' + esc(ch.number + '. ' + ch.title) + '</span>') + '</li>').join('');
   // Disclose AI assistance on every chapter page, not just on the homepage.
   const editorialNotice = active
-    ? '<section class="editorial-notice" aria-label="制作目的とAI利用について"><strong>制作目的とAI利用について</strong><p>本書は制作者が私的な学習・復習のために制作した教材です。本文・数式・例題・演習の生成や改訂に生成AI（ChatGPT）を利用しています。内容に誤りが含まれる可能性があり、専門家による査読・全数式の独立検証が完了したものではありません。重要な用途では原典等で確認してください。</p></section>'
+    ? '<section class="editorial-notice" aria-label="制作目的とAI利用について"><strong>制作目的とAI利用について</strong><p>本書は制作者が私的な学習・復習のために制作した教材です。本文・数式・例題・演習の生成や改訂に生成AI（ChatGPT）を利用しています。私的学習用として一通り完成しています。誤りが残る可能性があるため、必要に応じて随時修正します。研究や重要な用途では原典等も確認してください。</p></section>'
     : '';
   return '<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
     + '<meta name="description" content="統計手法の発想と数式の意味を体系的に学ぶ日本語の教科書">'

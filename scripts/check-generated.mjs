@@ -38,7 +38,8 @@ for (const chapter of chapterList) {
   assert.match(html, /class="editorial-notice"/, name + ' lacks visible notice');
   assert.match(html, /私的な学習/, name + ' lacks purpose disclosure');
   assert.match(html, /生成AI（ChatGPT）/, name + ' lacks AI disclosure');
-  assert.match(html, /専門家による査読/, name + ' lacks review caveat');
+  assert.match(html, /私的学習用として一通り完成/, name + ' lacks completion statement');
+  assert.match(html, /誤りが残る可能性/, name + ' lacks appropriate caveat');
   assert.match(html, /mathjax@3\.2\.2/, name + ' lacks MathJax');
   assert.match(html, /class="chapter-nav"/, name + ' lacks navigation');
   assert.match(html, /href="\.\.\/glossary\.html"/, name + ' lacks glossary navigation');
