@@ -20,17 +20,17 @@ for (const [i, chapter] of chapters.entries()) {
   if (!/^## (?:\d+(?:\.\d+)?\s+)?演習(?:\s|$)/m.test(source)) errors.push(filename + ': missing exercise heading');
   if (!/解答|解説/.test(source)) errors.push(filename + ': missing answers');
   // Each chapter is a reference article: define -> use cases -> mathematics.
-  const sectionNames = [...source.matchAll(/^## (?:\\d+\\.\\d+\\s+)?(.+)$/gm)].map(m => m[1]);
+  const sectionNames = [...source.matchAll(/^## (?:\d+\.\d+\s+)?(.+)$/gm)].map(m => m[1]);
   const expectedStart = ['概要', '使用場面', '数式とその意味'];
   for (let j = 0; j < expectedStart.length; j++) {
     if (sectionNames[j] !== expectedStart[j]) errors.push(filename + ': expected section ' + (j + 1) + ' to be ' + expectedStart[j]);
   }
-  const numberedSections = [...source.matchAll(/^## (\\d+)\\.(\\d+) (.+)$/gm)];
+  const numberedSections = [...source.matchAll(/^## (\d+)\.(\d+) (.+)$/gm)];
   numberedSections.forEach((m, j) => {
     if (Number(m[1]) !== chapter.number || Number(m[2]) !== j + 1)
       errors.push(filename + ': inconsistent section number at ' + m[0]);
   });
-  const firstDefinition = source.split(/^## (?:\\d+\\.\\d+\\s+)?概要\\s*$/m)[1]?.split(/^## /m)[0] ?? '';
+  const firstDefinition = source.split(/^## (?:\d+\.\d+\s+)?概要\s*$/m)[1]?.split(/^## /m)[0] ?? '';
   if (firstDefinition.trim().length < 35) errors.push(filename + ': definition too short');
 
 
