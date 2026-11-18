@@ -19,8 +19,10 @@ for (let n = 25; n <= 58; n++) {
   assert.match(source, /^## \d+\.\d+ 演習$/m, pathname + ': missing consolidated exercise section');
   assert.match(source, /^## \d+\.\d+ 演習の解答と解説$/m, pathname + ': missing solutions section');
   assert.doesNotMatch(source, /^## \d+\.\d+ (?:詳細なケーススタディ|検算できる発展例)/m, pathname + ': duplicate case study section reintroduced');
-  const exercise = source.match(/^## \d+\.\d+ 演習\s*$([\s\S]*?)(?=^## |$)/m)?.[1] || '';
-  const answers = source.match(/^## \d+\.\d+ 演習の解答と解説\s*$([\s\S]*?)(?=^## |$)/m)?.[1] || '';
+  const exercise = source.split(/^## \d+\.\d+ 演習\s*$/m)[1]
+    ?.split(/^## \d+\.\d+ 演習の解答と解説\s*$/m)[0] || '';
+  const answers = source.split(/^## \d+\.\d+ 演習の解答と解説\s*$/m)[1]
+    ?.split(/^## /m)[0] || '';
   const qs = [...exercise.matchAll(/^\*\*問題(\d+)\*\*：(.+)$/gm)];
   const as = [...answers.matchAll(/^\*\*問題(\d+)\*\*：(.+)$/gm)];
   assert.ok(qs.length >= 2, pathname + ': too few exercises');
