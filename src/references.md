@@ -13,6 +13,25 @@
 
 これらの資料は公開元が維持する外部サイトであり、本文とは別のコンテンツです。各資料のライセンスは各提供元の記載を参照してください。
 
+## 分野別に参照できる追加資料
+
+以下の資料については、公開元のページを確認しました。本文のすべての章・主張を一つずつ照合したという意味ではありません。
+
+| 資料 | 確認できる内容 | 本書の関連章 |
+|---|---|---|
+| [Hyndman & Athanasopoulos, *Forecasting: Principles and Practice*（第3版）](https://otexts.com/fpp3/) | 時系列の探索、ARIMA、指数平滑、予測の評価 | 第31〜38章 |
+| [Stan User's Guide: Posterior and Prior Predictive Checks](https://mc-stan.org/docs/stan-users-guide/posterior-predictive-checks.html) | 観測した分布の特徴と、事後予測から生成したデータを比較する方法 | 第39〜43章 |
+| [Stan: MCMC診断と警告](https://mc-stan.org/learn-stan/diagnostics-warnings.html) | 分割R-hat、実効サンプルサイズ、発散などの診断 | 第42章 |
+| [scikit-learn: Common pitfalls and recommended practices](https://scikit-learn.org/stable/common_pitfalls) | 前処理のデータ漏洩、訓練・テストの分離、Pipelineの適切な利用 | 第38章、第48〜50章 |
+
+## 実験・因果・多変量・統計的学習の外部資料
+
+| 資料 | 用途 | 関連章 |
+|---|---|---|
+| [Hernán & Robins, *Causal Inference: What If*](https://miguelhernan.org/whatifbook) | 潜在結果、交絡、観察研究、因果効果の識別条件を確認するための公開書籍 | 第25〜27章 |
+| [Penn State, STAT 505: Applied Multivariate Statistical Analysis](https://online.stat.psu.edu/stat505/) | 主成分分析、因子分析、判別・クラスタリングを数式と例で比較する | 第28〜30章 |
+| [James, Witten, Hastie, Tibshirani et al., *An Introduction to Statistical Learning*](https://www.statlearning.com/) | 回帰、分類、リサンプリング、変数選択、正則化、生存時間解析と教師なし学習 | 第15〜24章、第45〜50章、第54章、第58章 |
+
 ## 参考資料で確認する順番
 
 1. **定義を照合する**：標本分布・推定量・信頼区間など、数式で使う量の意味が合っているか。

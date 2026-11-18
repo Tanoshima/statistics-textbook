@@ -9,7 +9,7 @@
 
 - **全10部・58章**：全章に本文、基本的な数式、具体例、適用上の注意、演習・解説を掲載。
 - **第1〜20章**：基礎概念や推測統計・回帰について、導出と計算の説明を比較的詳しく整備。
-- **第21〜24章**：非線形回帰・固定効果・ヘドニック回帰・分散分析を詳しく再編集し、数式の導出、計算例、演習を補強。**第25〜58章**：深掘りとケーススタディを掲載。章によって導出の詳細さに差があります。
+- **第21〜24章**：非線形回帰・固定効果・ヘドニック回帰・分散分析を詳しく再編集。**第25〜58章**：全34章に手計算できる発展例・追加演習と解答を増補。説明の分量や専門的な校閲状況には章間の差があります。
 - **対象読者**：統計学を一度学んだことがあり、直感や使い分けを整理したい読者。
 - **公開形式**：標準HTML、CSS、MathJax。本文はMarkdown、数式はLaTeX。
 - **図解**：標本分布・信頼区間の被覆率・分散分析の例について、代替テキスト付きのローカルSVG図を追加しています。
@@ -19,7 +19,7 @@
 
 ## 読み方
 
-統計学の主要概念を一覧できる [用語集](https://tanoshima.github.io/statistics-textbook/glossary.html) と、学習内容を独立に確かめるための [参考資料](https://tanoshima.github.io/statistics-textbook/references.html) を用意しています。
+統計学の主要概念を一覧できる [用語集](https://tanoshima.github.io/statistics-textbook/glossary.html)、学習内容を独立に確かめるための [参考資料](https://tanoshima.github.io/statistics-textbook/references.html)、さらにNode.jsで手計算を追試できる [再現可能な計算例](https://tanoshima.github.io/statistics-textbook/reproduce.html) を用意しています。
 
 [公開サイトの目次](https://tanoshima.github.io/statistics-textbook/) から章を選べます。各章では、まず「何を知りたいか」を読み、次に数式の各記号、具体例、前提と限界を確認してから演習に進むことを推奨します。
 
@@ -35,6 +35,8 @@ npm run check
 npm run build
 npm run check:generated
 npm run check:examples
+npm run check:advanced
+npm run check:reproduce
 npm run check:links
 python3 -m http.server 8000 -d dist
 ```
@@ -50,6 +52,9 @@ python3 -m http.server 8000 -d dist
 - `scripts/check-content.mjs`：章構成・基本的なTeX記法の検査
 - `scripts/check-generated.mjs`：生成された全ページ・注意書き・MathJax設定の検査
 - `scripts/check-examples.mjs`：図と数値例の独立検算
+- `scripts/check-advanced-examples.mjs`：第25〜58章の計算例と補足説明の検査
+- `examples/reproduce.mjs`：外部依存のない回帰・分散分析・ブートストラップ等の実行例
+- `src/reproduce.md`：実行手順・解釈上の限界を示すページ
 - `scripts/check-links.mjs`：生成HTMLの内部リンクと画像参照の検査
 - `src/references.md`：原典の照合に役立つ参考資料
 - `src/assets/style.css`：最小限の見た目
@@ -67,7 +72,7 @@ Repository Settings → Pages → Build and deployment → Source を **GitHub A
 - ビルドと公開をジョブで分け、公開ジョブだけにPages関連の書き込み権限を付けています。
 - MathJaxのCDNスクリプトはバージョンを固定し、SRIを利用します。
 - Dependabotの更新PRは内容を確認してから取り込みます。
-- CIはHTMLファイルや基本的な数式記法を検査します。**統計的な説明の正しさ、計算の独立検算、専門家査読は代替できません**。
+- CIはHTMLファイル、基本的な数式記法、第25〜58章の代表的な計算例を検査します。**統計的な説明の正しさ、計算の独立検算、専門家査読は代替できません**。
 
 誤植、数式の誤り、解釈の疑問点はGitHub IssuesまたはPull Requestで報告・修正してください。
 

@@ -19,3 +19,8 @@ a:focus-visible{outline:3px solid #165e96;outline-offset:3px;border-radius:2px}
 header{flex-wrap:wrap}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{.skip-link{display:none}}
+
+/* TeX is emitted as literal MathJax content, protected from Markdown parsing. */
+.tex-block{max-width:100%;overflow-x:auto;overflow-y:hidden;margin:1.35rem 0}
+.tex-inline{overflow-wrap:normal;white-space:nowrap}
+@media print{.tex-block{overflow:visible}}
