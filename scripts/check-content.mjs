@@ -25,12 +25,11 @@ for (const [i, chapter] of chapters.entries()) {
   for (let j = 0; j < expectedStart.length; j++) {
     if (sectionNames[j] !== expectedStart[j]) errors.push(filename + ': expected section ' + (j + 1) + ' to be ' + expectedStart[j]);
   }
-  // The key equation and interpretation should precede worked examples and scenarios.
-  const opening = [...source.matchAll(/^## (?:\\d+\\.\\d+ )?(.+)$/gm)];
-  const equationSection = source.split(/^## \\d+\\.2 基本となる数式と記号\\s*$/m)[1]?.split(/^## /m)[0] ?? '';
-  const implicationsSection = source.split(/^## \\d+\\.3 数式から分かること\\s*$/m)[1]?.split(/^## /m)[0] ?? '';
-  if (!/\\$\\$[\\s\\S]+?\\$\\$/.test(equationSection)) errors.push(filename + ': key display formula missing from second section');
-  if (implicationsSection.replace(/\\$[^$]*\\$/g, '').trim().length < 70) errors.push(filename + ': equation implications too short');
+  // The central display equation must appear before implications and applications.
+  const equationSection = source.split(/^## \d+\.2 基本となる数式と記号\s*$/m)[1]?.split(/^## /m)[0] ?? '';
+  const implicationsSection = source.split(/^## \d+\.3 数式から分かること\s*$/m)[1]?.split(/^## /m)[0] ?? '';
+  if (!/\$\$[\s\S]+?\$\$/.test(equationSection)) errors.push(filename + ': key display formula missing from second section');
+  if (implicationsSection.replace(/\$[^$]*\$/g, '').trim().length < 70) errors.push(filename + ': equation implications too short');
   const numberedSections = [...source.matchAll(/^## (\d+)\.(\d+) (.+)$/gm)];
   numberedSections.forEach((m, j) => {
     if (Number(m[1]) !== chapter.number || Number(m[2]) !== j + 1)
