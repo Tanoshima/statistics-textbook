@@ -35,8 +35,7 @@ for (const [i, chapter] of chapters.entries()) {
     if (Number(m[1]) !== chapter.number || Number(m[2]) !== j + 1)
       errors.push(filename + ': inconsistent section number at ' + m[0]);
   });
-  // The probability chapters contain multiple key concepts, not just one opening formula.
-  // Check the order inside each important subsection, not only sections 1-4.
+  // Validate equation-first order within probability subsections, not only chapter openings.
   const equationFirstSections = {
     2: [5, 6, 7, 8, 9, 10],
     3: [5, 6, 7, 8],
@@ -45,64 +44,13 @@ for (const [i, chapter] of chapters.entries()) {
     6: [5, 6, 7, 8, 9, 10, 11]
   };
   for (const sectionNo of equationFirstSections[chapter.number] ?? []) {
-    const section = source.split(new RegExp('^## ' + chapter.number + '\\.' + sectionNo + ' .+/^## (?:\d+\.\d+\s+)?概要\s*$/m)[1]?.split(/^## /m)[0] ?? '';
-  if (firstDefinition.trim().length < 35) errors.push(filename + ': definition too short');
-
-
-  // Ignore fenced code and inline code spans while scanning math.
-  let fence = false;
-  const lines = source.split('\n').map(line => {
-    if (/^\s*(?:\x60{3,}|~{3,})/.test(line)) { fence = !fence; return ''; }
-    if (fence) return '';
-    return line.replace(/\x60[^\x60]*\x60/g, '');
-  });
-  const plain = lines.join('\n');
-  let state = '';
-  let expression = '';
-  let start = 0;
-  for (let j = 0; j < plain.length; j++) {
-    if (plain[j] !== '$') {
-      if (state) expression += plain[j];
-      continue;
-    }
-    let slashes = 0;
-    for (let k = j - 1; k >= 0 && plain[k] === '\\'; k--) slashes++;
-    if (slashes % 2) { if (state) expression += '$'; continue; }
-    const delimiter = plain[j + 1] === '$' ? '$$' : '$';
-    if (delimiter === '$$') j++;
-    if (!state) { state = delimiter; expression = ''; start = j; continue; }
-    if (state !== delimiter) { errors.push(filename + ': mixed math delimiters around character ' + start); state = ''; continue; }
-    if (!expression.trim()) errors.push(filename + ': empty math expression at ' + start);
-    let depth = 0;
-    for (let p = 0; p < expression.length; p++) {
-      let bslashes = 0;
-      for (let k = p - 1; k >= 0 && expression[k] === '\\'; k--) bslashes++;
-      if (bslashes % 2) continue;
-      if (expression[p] === '{') depth++;
-      if (expression[p] === '}') depth--;
-      if (depth < 0) { errors.push(filename + ': unexpected closing brace at ' + start); break; }
-    }
-    if (depth > 0) errors.push(filename + ': unclosed brace at ' + start);
-    if (/\\\\(?:frac|sqrt|sum|operatorname|alpha|beta|mu|sigma|theta|lambda|log|geq|leq|begin|end)\b/.test(expression))
-      errors.push(filename + ': TeX command has doubled backslash at ' + start);
-    if (/(?:Xge|Xle|Pge|Ple)\d/.test(expression))
-      warnings.push(filename + ': possible missing comparator at ' + start);
-    state = ''; expression = '';
-  }
-  if (state) errors.push(filename + ': unclosed ' + state + ' around character ' + start);
-}
-warnings.forEach(x => console.warn('WARNING ' + x));
-errors.forEach(x => console.error('ERROR ' + x));
-console.log('Checked ' + chapters.length + ' chapters: ' + errors.length + ' error(s), ' + warnings.length + ' warning(s).');
-if (errors.length) process.exitCode = 1;
-, 'm'))[1]
+    const section = source.split(new RegExp('^## ' + chapter.number + '\\.' + sectionNo + ' .+$', 'm'))[1]
       ?.split(/^## \d+\.\d+ /m)[0] ?? '';
-    const equationPos = section.indexOf('$');
-    const exampleMatch = /(?:^### (?:計算例|例：|小さな例|直感：)|^### .*例|^\\| .*\\|)/m.exec(section);
-    if (equationPos < 0)
-      errors.push(filename + ': missing central equation in section ' + sectionNo);
+    const equationPos = section.indexOf('$$');
+    const exampleMatch = /(?:^### (?:計算例|例：|小さな例|直感：)|^### .*例|^\| .*?\|)/m.exec(section);
+    if (equationPos < 0) errors.push(filename + ': central formula missing in section ' + sectionNo);
     else if (exampleMatch && exampleMatch.index < equationPos)
-      errors.push(filename + ': example precedes central equation in section ' + sectionNo);
+      errors.push(filename + ': example precedes formula in section ' + sectionNo);
   }
 
   const firstDefinition = source.split(/^## (?:\d+\.\d+\s+)?概要\s*$/m)[1]?.split(/^## /m)[0] ?? '';
