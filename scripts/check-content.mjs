@@ -53,81 +53,33 @@ for (const [i, chapter] of chapters.entries()) {
       errors.push(filename + ': example precedes formula in section ' + sectionNo);
   }
 
-  // Review every later section for example-first prose before its first display formula.
-  // Dedicated numerical-example sections are intentionally excluded.
+  // Check later sections for prose examples placed before the first displayed formula.
+  // Dedicated numerical examples and exercises are intentionally excluded.
   const laterSections = [...source.matchAll(/^## \d+\.\d+ (.+)$/gm)];
   for (let j = 4; j < laterSections.length; j++) {
     const title = laterSections[j][1];
     if (/演習|解答|計算例|再現|まとめ|結果の解釈/.test(title)) continue;
     const section = source.slice(laterSections[j].index + laterSections[j][0].length,
       laterSections[j + 1]?.index ?? source.length);
-    const formulaAt = section.indexOf('$');
+    const formulaAt = section.indexOf('$$');
     const exampleAt = section.search(/(?:例えば|たとえば|例として)/);
     if (formulaAt >= 0 && exampleAt >= 0 && exampleAt < formulaAt && exampleAt < 350)
       warnings.push(filename + ': example before display equation in ' + laterSections[j][0]);
   }
-  // Explicitly reviewed equation-first explanations in Chapters 7-24.
+
+  // Ensure reviewed sections introduce a concept before working through examples.
   const reviewed = {
     7: [7, 9, 12], 8: [5], 9: [11], 14: [5], 15: [7], 17: [7, 10], 24: [12]
   };
   for (const sectionNo of reviewed[chapter.number] ?? []) {
-    const heading = source.match(new RegExp('^## ' + chapter.number + '\\.' + sectionNo + ' .+/^## (?:\d+\.\d+\s+)?概要\s*$/m)[1]?.split(/^## /m)[0] ?? '';
-  if (firstDefinition.trim().length < 35) errors.push(filename + ': definition too short');
-
-
-  // Ignore fenced code and inline code spans while scanning math.
-  let fence = false;
-  const lines = source.split('\n').map(line => {
-    if (/^\s*(?:\x60{3,}|~{3,})/.test(line)) { fence = !fence; return ''; }
-    if (fence) return '';
-    return line.replace(/\x60[^\x60]*\x60/g, '');
-  });
-  const plain = lines.join('\n');
-  let state = '';
-  let expression = '';
-  let start = 0;
-  for (let j = 0; j < plain.length; j++) {
-    if (plain[j] !== '$') {
-      if (state) expression += plain[j];
-      continue;
-    }
-    let slashes = 0;
-    for (let k = j - 1; k >= 0 && plain[k] === '\\'; k--) slashes++;
-    if (slashes % 2) { if (state) expression += '$'; continue; }
-    const delimiter = plain[j + 1] === '$' ? '$$' : '$';
-    if (delimiter === '$$') j++;
-    if (!state) { state = delimiter; expression = ''; start = j; continue; }
-    if (state !== delimiter) { errors.push(filename + ': mixed math delimiters around character ' + start); state = ''; continue; }
-    if (!expression.trim()) errors.push(filename + ': empty math expression at ' + start);
-    let depth = 0;
-    for (let p = 0; p < expression.length; p++) {
-      let bslashes = 0;
-      for (let k = p - 1; k >= 0 && expression[k] === '\\'; k--) bslashes++;
-      if (bslashes % 2) continue;
-      if (expression[p] === '{') depth++;
-      if (expression[p] === '}') depth--;
-      if (depth < 0) { errors.push(filename + ': unexpected closing brace at ' + start); break; }
-    }
-    if (depth > 0) errors.push(filename + ': unclosed brace at ' + start);
-    if (/\\\\(?:frac|sqrt|sum|operatorname|alpha|beta|mu|sigma|theta|lambda|log|geq|leq|begin|end)\b/.test(expression))
-      errors.push(filename + ': TeX command has doubled backslash at ' + start);
-    if (/(?:Xge|Xle|Pge|Ple)\d/.test(expression))
-      warnings.push(filename + ': possible missing comparator at ' + start);
-    state = ''; expression = '';
-  }
-  if (state) errors.push(filename + ': unclosed ' + state + ' around character ' + start);
-}
-warnings.forEach(x => console.warn('WARNING ' + x));
-errors.forEach(x => console.error('ERROR ' + x));
-console.log('Checked ' + chapters.length + ' chapters: ' + errors.length + ' error(s), ' + warnings.length + ' warning(s).');
-if (errors.length) process.exitCode = 1;
-, 'm'));
+    const heading = source.match(new RegExp('^## ' + chapter.number + '\\.' + sectionNo + ' .+$', 'm'));
     if (!heading) { errors.push(filename + ': missing reviewed section ' + sectionNo); continue; }
     const section = source.slice(heading.index + heading[0].length).split(/^## \d+\.\d+ /m)[0];
     const definition = section.split(/(?:^### (?:計算例|計算手順|転置の計算例)|例えば|たとえば)/m)[0];
     if (definition.trim().length < 90)
       errors.push(filename + ': missing equation-first definition in section ' + sectionNo);
   }
+
   const firstDefinition = source.split(/^## (?:\d+\.\d+\s+)?概要\s*$/m)[1]?.split(/^## /m)[0] ?? '';
   if (firstDefinition.trim().length < 35) errors.push(filename + ': definition too short');
 
