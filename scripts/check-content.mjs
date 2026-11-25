@@ -53,6 +53,33 @@ for (const [i, chapter] of chapters.entries()) {
       errors.push(filename + ': example precedes formula in section ' + sectionNo);
   }
 
+  // Check later sections for prose examples placed before the first displayed formula.
+  // Dedicated numerical examples and exercises are intentionally excluded.
+  const laterSections = [...source.matchAll(/^## \d+\.\d+ (.+)$/gm)];
+  for (let j = 4; j < laterSections.length; j++) {
+    const title = laterSections[j][1];
+    if (/演習|解答|計算例|再現|まとめ|結果の解釈/.test(title)) continue;
+    const section = source.slice(laterSections[j].index + laterSections[j][0].length,
+      laterSections[j + 1]?.index ?? source.length);
+    const formulaAt = section.indexOf('$$');
+    const exampleAt = section.search(/(?:例えば|たとえば|例として)/);
+    if (formulaAt >= 0 && exampleAt >= 0 && exampleAt < formulaAt && exampleAt < 350)
+      warnings.push(filename + ': example before display equation in ' + laterSections[j][0]);
+  }
+
+  // Ensure reviewed sections introduce a concept before working through examples.
+  const reviewed = {
+    7: [7, 9, 12], 8: [5], 9: [11], 14: [5], 15: [7], 17: [7, 10], 24: [12]
+  };
+  for (const sectionNo of reviewed[chapter.number] ?? []) {
+    const heading = source.match(new RegExp('^## ' + chapter.number + '\\.' + sectionNo + ' .+$', 'm'));
+    if (!heading) { errors.push(filename + ': missing reviewed section ' + sectionNo); continue; }
+    const section = source.slice(heading.index + heading[0].length).split(/^## \d+\.\d+ /m)[0];
+    const definition = section.split(/(?:^### (?:計算例|計算手順|転置の計算例)|例えば|たとえば)/m)[0];
+    if (definition.trim().length < 90)
+      errors.push(filename + ': missing equation-first definition in section ' + sectionNo);
+  }
+
   const firstDefinition = source.split(/^## (?:\d+\.\d+\s+)?概要\s*$/m)[1]?.split(/^## /m)[0] ?? '';
   if (firstDefinition.trim().length < 35) errors.push(filename + ': definition too short');
 
