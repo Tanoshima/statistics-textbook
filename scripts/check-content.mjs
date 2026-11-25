@@ -35,6 +35,24 @@ for (const [i, chapter] of chapters.entries()) {
     if (Number(m[1]) !== chapter.number || Number(m[2]) !== j + 1)
       errors.push(filename + ': inconsistent section number at ' + m[0]);
   });
+  // Validate equation-first order within probability subsections, not only chapter openings.
+  const equationFirstSections = {
+    2: [5, 6, 7, 8, 9, 10],
+    3: [5, 6, 7, 8],
+    4: [5, 6, 7, 8, 9],
+    5: [6, 7, 8, 9, 10, 11],
+    6: [5, 6, 7, 8, 9, 10, 11]
+  };
+  for (const sectionNo of equationFirstSections[chapter.number] ?? []) {
+    const section = source.split(new RegExp('^## ' + chapter.number + '\\.' + sectionNo + ' .+$', 'm'))[1]
+      ?.split(/^## \d+\.\d+ /m)[0] ?? '';
+    const equationPos = section.indexOf('$$');
+    const exampleMatch = /(?:^### (?:計算例|例：|小さな例|直感：)|^### .*例|^\| .*?\|)/m.exec(section);
+    if (equationPos < 0) errors.push(filename + ': central formula missing in section ' + sectionNo);
+    else if (exampleMatch && exampleMatch.index < equationPos)
+      errors.push(filename + ': example precedes formula in section ' + sectionNo);
+  }
+
   const firstDefinition = source.split(/^## (?:\d+\.\d+\s+)?概要\s*$/m)[1]?.split(/^## /m)[0] ?? '';
   if (firstDefinition.trim().length < 35) errors.push(filename + ': definition too short');
 
